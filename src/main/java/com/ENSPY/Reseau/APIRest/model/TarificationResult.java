@@ -38,15 +38,19 @@ public class TarificationResult {
     @Column("user_id")
     private UUID userId;
 
+    @Column("time_in_months")
+    private Double timeInMonths;
+
     @Column("calculated_at")
     private LocalDateTime calculatedAt;
 
     public TarificationResult() {
     }
 
-    public TarificationResult(UUID id, UUID productId, String productName, Double prixDesConcurrents, Double tarificationPrice, Double potentialRevenue, Double margin, UUID userId, LocalDateTime calculatedAt) {
+    public TarificationResult(UUID id,Double timeInMonths, UUID productId, String productName, Double prixDesConcurrents, Double tarificationPrice, Double potentialRevenue, Double margin, UUID userId, LocalDateTime calculatedAt) {
         this.id = id;
         this.productId = productId;
+        this.timeInMonths = timeInMonths;
         this.productName = productName;
         this.prixDesConcurrents = prixDesConcurrents;
         this.tarificationPrice = tarificationPrice;

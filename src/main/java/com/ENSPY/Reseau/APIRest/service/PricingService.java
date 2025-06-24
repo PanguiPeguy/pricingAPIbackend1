@@ -29,7 +29,7 @@ public class PricingService {
         this.produitService = produitService;
         this.authService = authService;
         this.webClient = WebClient.builder()
-                .baseUrl("http://localhost:5000")
+                .baseUrl("https://pricingapibackend2.onrender.com")
                 .build();
     }
 

@@ -19,7 +19,7 @@ public class TarificationController {
     }
 
     public Mono<ServerResponse> calculateDecremageTarificationPrice(UUID productId, Integer prixMax) {
-        return tarificationService.calculateDecremageTarificationPrice(productId, prixMax)
+        return tarificationService.calculateDecremageTarificationPrice(productId, Double.valueOf(prixMax))
                 .flatMap(result -> ServerResponse.ok().bodyValue(result))
                 .onErrorResume(e -> ServerResponse.badRequest().bodyValue(Map.of("message", e.getMessage())));
     }
@@ -31,7 +31,7 @@ public class TarificationController {
     }
 
     public Mono<ServerResponse> calculatePenetrationTarificationPrice(UUID productId, Integer prixMin) {
-        return tarificationService.calculatePenetrationTarificationPrice(productId, prixMin)
+        return tarificationService.calculatePenetrationTarificationPrice(productId, Double.valueOf(prixMin))
                 .flatMap(result -> ServerResponse.ok().bodyValue(result))
                 .onErrorResume(e -> ServerResponse.badRequest().bodyValue(Map.of("message", e.getMessage())));
     }

@@ -23,6 +23,9 @@ public class Produit {
     @Column("description")
     private String description;
 
+    @Column("date_lancement")
+    private LocalDateTime dateLancement;
+
     @Column("prix_des_concurrents")
     private Double prixDesConcurrents;
 
@@ -53,10 +56,11 @@ public class Produit {
     public Produit() {
     }
 
-    public Produit(UUID id, String name, String description, Double prixDesConcurrents, Double coutDeProduction, Double desiredMargin, String category, String type, Integer stock, UUID userId, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Produit(UUID id, String name, LocalDateTime dateLancement, String description, Double prixDesConcurrents, Double coutDeProduction, Double desiredMargin, String category, String type, Integer stock, UUID userId, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.dateLancement = dateLancement;
         this.prixDesConcurrents = prixDesConcurrents;
         this.coutDeProduction = coutDeProduction;
         this.desiredMargin = desiredMargin;
